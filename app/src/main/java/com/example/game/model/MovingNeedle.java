@@ -19,7 +19,6 @@ public class MovingNeedle extends GameCharacter{
     public void setBarrier(Barrier barrier) {
         this.barrier = barrier;
     }
-
     public void dead(){
         deadFlag = true;
         this.x = -this.xSize;

@@ -17,13 +17,6 @@ public class Needle extends GameCharacter{
     public void setBarrier(Barrier barrier) {
         this.barrier = barrier;
     }
-    public Needle(int x, int y) {
-        this.x=x + (int)(Math.random() * 200 - 100);
-        this.y=y + (int)(Math.random() * 800 - 400);
-        this.xSize=70;
-        this.ySize=300;
-        this.ySpeed = 15;
-    }
     public void dead(){
         deadFlag = true;
         this.x = -this.xSize;
@@ -33,6 +26,13 @@ public class Needle extends GameCharacter{
     }
     public boolean isDead(){
         return deadFlag;
+    }
+    public Needle(int x, int y) {
+        this.x = x + (int) (Math.random() * 200 - 100);
+        this.y = y + (int) (Math.random() * 800 - 400);
+        this.xSize = 70;
+        this.ySize = 300;
+        this.ySpeed = 15;
     }
 
     public void move(){
