@@ -1,6 +1,6 @@
 package com.example.game.model;
 
-public class Needle extends GameCharacter{
+public class Needle extends Trap{
 
     private Player player;
     private Slash slash;

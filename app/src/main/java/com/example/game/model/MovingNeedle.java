@@ -2,7 +2,7 @@ package com.example.game.model;
 
 import com.example.game.views.MainView;
 
-public class MovingNeedle extends GameCharacter{
+public class MovingNeedle extends Trap{
 
     private Player player;
     private Slash slash;

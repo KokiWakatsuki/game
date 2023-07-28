@@ -1,6 +1,6 @@
 package com.example.game.model;
 
-public class Warp extends GameCharacter{
+public class Warp extends Trap{
     private Player player;
 
     public void setPlayer(Player player) {

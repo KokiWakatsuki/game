@@ -17,6 +17,7 @@ public class World {
     Barrier barrier;
     BossBarrier bossBarrier;
     Warp warp;
+    List<Trap> traps;
     List<Ground> grounds;
     List<Needle> needles;
     List<MovingNeedle> movingNeedles;
@@ -53,21 +54,23 @@ public class World {
             movingNeedles.add(new MovingNeedle());
         }
 
+        traps = new LinkedList<Trap>();
+        traps.add(warp);
+        traps.addAll(needles);
+        traps.addAll(movingNeedles);
+
+
         // モデルの接続
         for(Ground ground : grounds){
             player.addLimitCharacter(ground);
         }
-        needles.forEach(x -> x.setPlayer(player));
-        needles.forEach(x -> x.setSlash(slash));
-        needles.forEach(x -> x.setBarrier(barrier));
-        movingNeedles.forEach(x -> x.setPlayer(player));
-        movingNeedles.forEach(x -> x.setSlash(slash));
-        movingNeedles.forEach(x -> x.setBarrier(barrier));
+        traps.forEach(x -> x.setPlayer(player));
+        traps.forEach(x -> x.setSlash(slash));
+        traps.forEach(x -> x.setBarrier(barrier));
         slash.setPlayer(player);
         movingSlash.setPlayer(player);
         movingSlash.setBoss(boss);
         barrier.setPlayer(player);
-        warp.setPlayer(player);
         boss.setPlayer(player);
         bossBarrier.setBoss(boss);
         bossBarrier.setMovingSlash(movingSlash);
@@ -84,11 +87,9 @@ public class World {
         slash.move();
         movingSlash.move();
         barrier.move();
-        warp.move();
         boss.move();
         bossBarrier.move();
-        needles.forEach(x -> x.move());
-        movingNeedles.forEach(x -> x.move());
+        traps.forEach(x -> x.move());
         beam.move();
         energy.move();
     }
