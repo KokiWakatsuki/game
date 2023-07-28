@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 
 import com.example.game.helpers.BaseActivity;
+import com.example.game.model.Explain;
 import com.example.game.model.Player;
 import com.example.game.model.World;
 import com.example.game.views.MainView;
@@ -15,6 +16,7 @@ public class MainActivity extends BaseActivity {
 
     World world;
 
+    Explain explain;
     MainView mainView;
 
     @Override
@@ -42,7 +44,9 @@ public class MainActivity extends BaseActivity {
         }
 
         world.move();
-        mainView.draw(world);
+        explain = new Explain();
+        mainView.draw(world, explain);
+        mainView.drawControlExplain(world, explain);
     }
 
     public void retry(){

@@ -18,6 +18,9 @@ import com.example.game.model.Beam;
 import com.example.game.model.Boss;
 import com.example.game.model.BossBarrier;
 import com.example.game.model.Energy;
+import com.example.game.model.Explain;
+import com.example.game.model.Explain1;
+import com.example.game.model.Explain2;
 import com.example.game.model.GameCharacter;
 import com.example.game.model.Ground;
 import com.example.game.model.MovingNeedle;
@@ -74,6 +77,8 @@ public class MainView extends BaseView {
     TextView gameOverTextView;
     TextView timeTextView;
     TextView barrierStateTextView;
+    TextView explainTextView;
+
 
     // ビュー用変数
     ImageViewBuilder imageViewBuilder;
@@ -126,7 +131,7 @@ public class MainView extends BaseView {
 
     }
 
-    public void draw(World world) {
+    public void draw(World world, Explain explain) {
         // スクロール
         Player player = world.getPlayer();
         Boss boss = world.getBoss();
@@ -284,6 +289,53 @@ public class MainView extends BaseView {
         barrierStateTextView.setTextColor(Color.WHITE);
         barrierStateTextView.setText("" + maxBarrier);
         drawTextViewRight(canvasBaseX + 100, 590, barrierStateTextView);
+    }
+
+    public void drawBossExplain(World world, Explain explain){
+        Player player = world.getPlayer();
+        Explain1 explain1 = new Explain1();
+        Explain2 explain2 = new Explain2();
+        if(player.isTime() > 500){
+            explain.setBossExplain(explain1);
+        } else if (player.isTime() > 1000) {
+            explain.setBossExplain(explain2);
+        }
+        drawTextViewCenter(800, canvasBaseY, explainTextView);
+        explainTextView.setText(explain.getBossExplain());
+    }
+
+    public void drawControlExplain(World world, Explain explain){
+        Player player = world.getPlayer();
+        Explain1 explain1 = new Explain1();
+        Explain2 explain2 = new Explain2();
+        if(player.isTime() > 5){
+            explain.setControlExplain(explain1);
+        } else if (player.isTime() >= 0) {
+            explain.setControlExplain(explain2);
+        }
+        if(explainTextView == null){
+            explainTextView = new TextView(context);
+            constraintLayout.addView(explainTextView);
+            explainTextView.setVisibility(View.VISIBLE);
+            explainTextView.setText("");
+            explainTextView.setTextSize(24);
+            explainTextView.setTextColor(Color.WHITE);
+        }
+        drawTextViewCenter(canvasBaseX + 700, 350, explainTextView);
+        explainTextView.setText(explain.getControlExplain());
+    }
+
+    public void drawTrapExplain(World world, Explain explain){
+        Player player = world.getPlayer();
+        Explain1 explain1 = new Explain1();
+        Explain2 explain2 = new Explain2();
+        if(player.isTime() > 500){
+            explain.setTrapExplain(explain1);
+        } else if (player.isTime() > 1000) {
+            explain.setTrapExplain(explain2);
+        }
+        drawTextViewCenter(800, canvasBaseY, explainTextView);
+        explainTextView.setText(explain.getTrapExplain());
     }
 
 
