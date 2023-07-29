@@ -10,6 +10,8 @@ public class World {
     // モデル
     Player player;
     Boss boss;
+    Boss1 boss1;
+    Boss2 boss2;
     Beam beam;
     Energy energy;
     Slash slash;
@@ -30,7 +32,9 @@ public class World {
         barrier = new Barrier();
         bossBarrier = new BossBarrier();
         warp = new Warp();
-        boss = new Boss();
+        boss1 = new Boss1();
+        boss2 = new Boss2();
+        boss = boss1;
         beam = new Beam();
         energy = new Energy();
         explain = new Explain();
@@ -73,7 +77,8 @@ public class World {
         movingSlash.setPlayer(player);
         movingSlash.setBoss(boss);
         barrier.setPlayer(player);
-        boss.setPlayer(player);
+        boss1.setPlayer(player);
+        boss2.setPlayer(player);
         bossBarrier.setBoss(boss);
         bossBarrier.setMovingSlash(movingSlash);
         beam.setBoss(boss);
@@ -94,6 +99,27 @@ public class World {
         traps.forEach(x -> x.move());
         beam.move();
         energy.move();
+
+        if(boss1.getBossHp() < 7){
+            beam.initialize();
+            energy.initialize();
+            boss2.setX(boss1.getX());
+            boss2.setY(boss1.getY());
+            boss2.falseEnergyFlag();
+            boss2.falseBeamFlag();
+            boss2.setBossHp(boss1.getBossHp());
+            boss2.setAppearFlag(true);
+            boss2.setCount(0);
+            boss2.setDamageFlag(false);
+            boss = boss2;
+            bossBarrier.setBoss(boss);
+            beam.setBoss(boss);
+            energy.setBoss(boss);
+            movingSlash.setBoss(boss);
+
+            // 条件を満たさないようにする
+            boss1.setBossHp(10);
+        }
     }
 
     //Getter
