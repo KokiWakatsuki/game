@@ -304,18 +304,6 @@ public class MainView extends BaseView {
         drawTextViewRight(canvasBaseX + 100, 590, barrierStateTextView);
     }
 
-    public void drawBossExplain(Explain explain){
-        Explain1 explain1 = new Explain1();
-        Explain2 explain2 = new Explain2();
-        if(MainActivity.getExplainCount() > 500){
-            explain.setBossExplain(explain1);
-        } else if (MainActivity.getExplainCount() > 1000) {
-            explain.setBossExplain(explain2);
-        }
-        drawTextViewCenter(800, canvasBaseY, explainTextView);
-        explainTextView.setText(explain.getBossExplain());
-    }
-
     public void drawGameExplain(Explain explain){
         Explain1 explain1 = new Explain1();
         Explain2 explain2 = new Explain2();
@@ -366,19 +354,6 @@ public class MainView extends BaseView {
         drawTextViewCenter(canvasBaseX + 750, 200, explainTextView);
         explainTextView.setText(explain.getGameExplain());
     }
-
-    public void drawTrapExplain(Explain explain){
-        Explain1 explain1 = new Explain1();
-        Explain2 explain2 = new Explain2();
-        if(MainActivity.getExplainCount() > 500){
-            explain.setTrapExplain(explain1);
-        } else if (MainActivity.getExplainCount() > 1000) {
-            explain.setTrapExplain(explain2);
-        }
-        drawTextViewCenter(800, canvasBaseY, explainTextView);
-        explainTextView.setText(explain.getTrapExplain());
-    }
-
 
     //======================
     // キャラクター表示用の関数
