@@ -57,6 +57,9 @@ public class MainView extends BaseView {
     public static boolean isExplainFlag() {
         return explainFlag;
     }
+    public static void setExplainFlag(boolean explainFlag) {
+        MainView.explainFlag = explainFlag;
+    }
 
     // 画像用変数
     Bitmap backGroundImage;
@@ -245,7 +248,11 @@ public class MainView extends BaseView {
             drawRetryButton();
         }
 
-        drawGameExplain(explain);
+        if(player.getX() < 15000) {
+            drawGameExplain(explain);
+        } else {
+            drawBossExplain(explain);
+        }
     }
 
     //======================
@@ -304,18 +311,6 @@ public class MainView extends BaseView {
         drawTextViewRight(canvasBaseX + 100, 590, barrierStateTextView);
     }
 
-    public void drawBossExplain(Explain explain){
-        Explain1 explain1 = new Explain1();
-        Explain2 explain2 = new Explain2();
-        if(MainActivity.getExplainCount() > 500){
-            explain.setBossExplain(explain1);
-        } else if (MainActivity.getExplainCount() > 1000) {
-            explain.setBossExplain(explain2);
-        }
-        drawTextViewCenter(800, canvasBaseY, explainTextView);
-        explainTextView.setText(explain.getBossExplain());
-    }
-
     public void drawGameExplain(Explain explain){
         Explain1 explain1 = new Explain1();
         Explain2 explain2 = new Explain2();
@@ -324,6 +319,18 @@ public class MainView extends BaseView {
         Explain5 explain5 = new Explain5();
         Explain6 explain6 = new Explain6();
         Explain7 explain7 = new Explain7();
+        if(explainTextView == null){
+            explainTextView = new TextView(context);
+            constraintLayout.addView(explainTextView);
+            explainTextView.setVisibility(View.VISIBLE);
+            explainTextView.setText("");
+            explainTextView.setTextSize(24);
+            explainTextView.setTextColor(Color.WHITE);
+            explainTextView.setHeight(300);
+            explainTextView.setWidth(1400);
+            explainTextView.setGravity(Gravity.CENTER);
+            explainTextView.setBackgroundColor(Color.BLACK);
+        }
         switch (MainActivity.getExplainCount()){
             case 0:
                 explain.setGameExplain(explain1);
@@ -347,38 +354,55 @@ public class MainView extends BaseView {
                 explain.setGameExplain(explain7);
                 break;
             default:
+                // 何も設定しないとエラーになるため、設定しておく
+                explain.setGameExplain(explain1);
                 explainFlag = true;
                 explainTextView.setVisibility(View.GONE);
                 break;
-        }
-        if(explainTextView == null){
-            explainTextView = new TextView(context);
-            constraintLayout.addView(explainTextView);
-            explainTextView.setVisibility(View.VISIBLE);
-            explainTextView.setText("");
-            explainTextView.setTextSize(24);
-            explainTextView.setTextColor(Color.WHITE);
-            explainTextView.setHeight(300);
-            explainTextView.setWidth(1400);
-            explainTextView.setGravity(Gravity.CENTER);
-            explainTextView.setBackgroundColor(Color.BLACK);
         }
         drawTextViewCenter(canvasBaseX + 750, 200, explainTextView);
         explainTextView.setText(explain.getGameExplain());
     }
 
-    public void drawTrapExplain(Explain explain){
+    public void drawBossExplain(Explain explain){
         Explain1 explain1 = new Explain1();
         Explain2 explain2 = new Explain2();
-        if(MainActivity.getExplainCount() > 500){
-            explain.setTrapExplain(explain1);
-        } else if (MainActivity.getExplainCount() > 1000) {
-            explain.setTrapExplain(explain2);
+        Explain3 explain3 = new Explain3();
+        Explain4 explain4 = new Explain4();
+        Explain5 explain5 = new Explain5();
+        Explain6 explain6 = new Explain6();
+        Explain7 explain7 = new Explain7();
+        switch (MainActivity.getExplainCount()){
+            case 0:
+                explainTextView.setVisibility(View.VISIBLE);
+                explain.setBossExplain(explain1);
+                break;
+            case 1:
+                explain.setBossExplain(explain2);
+                break;
+            case 2:
+                explain.setBossExplain(explain3);
+                break;
+            case 3:
+                explain.setBossExplain(explain4);
+                break;
+            case 4:
+                explain.setBossExplain(explain5);
+                break;
+            case 5:
+                explain.setBossExplain(explain6);
+                break;
+            case 6:
+                explain.setBossExplain(explain7);
+                break;
+            default:
+                explainFlag = true;
+                explainTextView.setVisibility(View.GONE);
+                break;
         }
-        drawTextViewCenter(800, canvasBaseY, explainTextView);
-        explainTextView.setText(explain.getTrapExplain());
+        drawTextViewCenter(canvasBaseX + 750, 200, explainTextView);
+        explainTextView.setText(explain.getBossExplain());
     }
-
 
     //======================
     // キャラクター表示用の関数

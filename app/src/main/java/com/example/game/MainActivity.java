@@ -21,6 +21,9 @@ public class MainActivity extends BaseActivity {
     public static int getExplainCount() {
         return explainCount;
     }
+    public static void setExplainCount(int explainCount) {
+        MainActivity.explainCount = explainCount;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,9 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         finish();
+        setExplainCount(0);
+        MainView.setExplainFlag(false);
+
 
 //        startMusic();
     }
