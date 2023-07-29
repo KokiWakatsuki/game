@@ -3,11 +3,13 @@ package com.example.game.views;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Dimension;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.game.MainActivity;
@@ -21,6 +23,11 @@ import com.example.game.model.Energy;
 import com.example.game.model.Explain;
 import com.example.game.model.Explain1;
 import com.example.game.model.Explain2;
+import com.example.game.model.Explain3;
+import com.example.game.model.Explain4;
+import com.example.game.model.Explain5;
+import com.example.game.model.Explain6;
+import com.example.game.model.Explain7;
 import com.example.game.model.GameCharacter;
 import com.example.game.model.Ground;
 import com.example.game.model.MovingNeedle;
@@ -42,10 +49,14 @@ public class MainView extends BaseView {
     Context context;
 
     // 定数
-    final int BLOCK_COUNT = 5;
     boolean deadState = false;
     public static int backGroundMax = 11160;
     private float time = 1.00f;
+    private static boolean explainFlag = false;
+
+    public static boolean isExplainFlag() {
+        return explainFlag;
+    }
 
     // 画像用変数
     Bitmap backGroundImage;
@@ -128,11 +139,11 @@ public class MainView extends BaseView {
                 mainActivity.retry();
             }
         });
-
     }
 
-    public void draw(World world, Explain explain) {
+    public void draw(World world) {
         // スクロール
+        Explain explain = world.getExplain();
         Player player = world.getPlayer();
         Boss boss = world.getBoss();
         Slash slash = world.getSlash();
@@ -233,6 +244,8 @@ public class MainView extends BaseView {
             drawGameClear();
             drawRetryButton();
         }
+
+        drawGameExplain(explain);
     }
 
     //======================
@@ -291,27 +304,52 @@ public class MainView extends BaseView {
         drawTextViewRight(canvasBaseX + 100, 590, barrierStateTextView);
     }
 
-    public void drawBossExplain(World world, Explain explain){
-        Player player = world.getPlayer();
+    public void drawBossExplain(Explain explain){
         Explain1 explain1 = new Explain1();
         Explain2 explain2 = new Explain2();
-        if(player.isTime() > 500){
+        if(MainActivity.getExplainCount() > 500){
             explain.setBossExplain(explain1);
-        } else if (player.isTime() > 1000) {
+        } else if (MainActivity.getExplainCount() > 1000) {
             explain.setBossExplain(explain2);
         }
         drawTextViewCenter(800, canvasBaseY, explainTextView);
         explainTextView.setText(explain.getBossExplain());
     }
 
-    public void drawControlExplain(World world, Explain explain){
-        Player player = world.getPlayer();
+    public void drawGameExplain(Explain explain){
         Explain1 explain1 = new Explain1();
         Explain2 explain2 = new Explain2();
-        if(player.isTime() > 5){
-            explain.setControlExplain(explain1);
-        } else if (player.isTime() >= 0) {
-            explain.setControlExplain(explain2);
+        Explain3 explain3 = new Explain3();
+        Explain4 explain4 = new Explain4();
+        Explain5 explain5 = new Explain5();
+        Explain6 explain6 = new Explain6();
+        Explain7 explain7 = new Explain7();
+        switch (MainActivity.getExplainCount()){
+            case 0:
+                explain.setGameExplain(explain1);
+                break;
+            case 1:
+                explain.setGameExplain(explain2);
+                break;
+            case 2:
+                explain.setGameExplain(explain3);
+                break;
+            case 3:
+                explain.setGameExplain(explain4);
+                break;
+            case 4:
+                explain.setGameExplain(explain5);
+                break;
+            case 5:
+                explain.setGameExplain(explain6);
+                break;
+            case 6:
+                explain.setGameExplain(explain7);
+                break;
+            default:
+                explainFlag = true;
+                explainTextView.setVisibility(View.GONE);
+                break;
         }
         if(explainTextView == null){
             explainTextView = new TextView(context);
@@ -320,18 +358,21 @@ public class MainView extends BaseView {
             explainTextView.setText("");
             explainTextView.setTextSize(24);
             explainTextView.setTextColor(Color.WHITE);
+            explainTextView.setHeight(300);
+            explainTextView.setWidth(1400);
+            explainTextView.setGravity(Gravity.CENTER);
+            explainTextView.setBackgroundColor(Color.BLACK);
         }
-        drawTextViewCenter(canvasBaseX + 700, 350, explainTextView);
-        explainTextView.setText(explain.getControlExplain());
+        drawTextViewCenter(canvasBaseX + 750, 200, explainTextView);
+        explainTextView.setText(explain.getGameExplain());
     }
 
-    public void drawTrapExplain(World world, Explain explain){
-        Player player = world.getPlayer();
+    public void drawTrapExplain(Explain explain){
         Explain1 explain1 = new Explain1();
         Explain2 explain2 = new Explain2();
-        if(player.isTime() > 500){
+        if(MainActivity.getExplainCount() > 500){
             explain.setTrapExplain(explain1);
-        } else if (player.isTime() > 1000) {
+        } else if (MainActivity.getExplainCount() > 1000) {
             explain.setTrapExplain(explain2);
         }
         drawTextViewCenter(800, canvasBaseY, explainTextView);

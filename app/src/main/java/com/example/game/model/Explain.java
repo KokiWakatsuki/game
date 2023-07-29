@@ -1,31 +1,31 @@
 package com.example.game.model;
 
 public class Explain {
+    private GameExplain gameExplain;
     private BossExplain bossExplain;
-    private ControlExsplain controlExplain;
     private TrapExplain trapExplain;
 
-    public String getBossExplain() {
-        return bossExplain.getBossExplain();
+    // セット
+    public void setGameExplain(GameExplain gameExplain) {
+        this.gameExplain = gameExplain;
     }
-
+    public void setTrapExplain(TrapExplain trapExplain) {
+        this.trapExplain = trapExplain;
+    }
     public void setBossExplain(BossExplain bossExplain) {
         this.bossExplain = bossExplain;
     }
 
-    public String getControlExplain() {
-        return controlExplain.getControlExplain();
+    // ゲット
+    public String getGameExplain() {
+        return gameExplain.getGameExplain();
     }
-
-    public void setControlExplain(ControlExsplain controlExsplain) {
-        this.controlExplain = controlExsplain;
-    }
-
     public String getTrapExplain() {
         return trapExplain.getTrapExplain();
     }
-
-    public void setTrapExplain(TrapExplain trapExplain) {
-        this.trapExplain = trapExplain;
+    public String getBossExplain() {
+        return bossExplain.getBossExplain();
     }
+
+
 }

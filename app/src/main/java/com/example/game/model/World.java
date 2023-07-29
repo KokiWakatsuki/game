@@ -17,6 +17,7 @@ public class World {
     Barrier barrier;
     BossBarrier bossBarrier;
     Warp warp;
+    Explain explain;
     List<Trap> traps;
     List<Ground> grounds;
     List<Needle> needles;
@@ -32,6 +33,7 @@ public class World {
         boss = new Boss();
         beam = new Beam();
         energy = new Energy();
+        explain = new Explain();
 
         grounds = new LinkedList<Ground>();
         for(int i = 0; i < 75; i++){
@@ -142,5 +144,9 @@ public class World {
 
     public Energy getEnergy() {
         return energy;
+    }
+
+    public Explain getExplain() {
+        return explain;
     }
 }
