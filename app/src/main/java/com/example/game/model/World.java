@@ -100,7 +100,7 @@ public class World {
         beam.move();
         energy.move();
 
-        if(boss1.getBossHp() < 7){
+        if(boss1.getBossHp() < 6){
             beam.initialize();
             energy.initialize();
             boss2.setX(boss1.getX());

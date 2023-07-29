@@ -8,11 +8,12 @@ public class Boss2 extends Boss{
     private int bossLoop = 10;
     private boolean beamFlag = false;
     private boolean energyFlag = false;
-    private int bossHp = 10;
+    private int bossHp = 15;
     private int bossDamageCount = 0;
     private boolean bossDeadFlag = false;
     private boolean bossDamageFlag = false;
     private boolean bossDamageEffect = false;
+    private boolean bossStateFlag = true;
 
     private Player player;
 
@@ -129,5 +130,9 @@ public class Boss2 extends Boss{
 
     public void setDamageFlag(boolean damageFlag) {
         this.damageFlag = damageFlag;
+    }
+
+    public boolean isBossStateFlag() {
+        return bossStateFlag;
     }
 }

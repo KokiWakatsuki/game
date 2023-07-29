@@ -81,6 +81,7 @@ public class MainView extends BaseView {
     Bitmap barrierImage;
     Bitmap warpImage;
     Bitmap bossImage;
+    Bitmap boss2Image;
     Bitmap bossBarrierImage;
     Bitmap beamLeftImage;
     Bitmap beamRightImage;
@@ -123,6 +124,7 @@ public class MainView extends BaseView {
         barrierImage = loadImage(R.drawable.barrier);
         warpImage = loadImage(R.drawable.warp);
         bossImage = loadImage(R.drawable.boss);
+        boss2Image = loadImage(R.drawable.boss2);
         beamLeftImage = loadImage(R.drawable.beam_left);
         beamRightImage = loadImage(R.drawable.beam_right);
         energyImage = loadImage(R.drawable.energy);
@@ -184,7 +186,7 @@ public class MainView extends BaseView {
         drawCharacter(world.getWarp(), warpImage);
 
         // ボスを表示
-        drawCharacter(world.getBoss(), bossImage);
+        drawBoss(world.getBoss());
 
         // プレーヤを表示
         drawPlayer(player);
@@ -435,6 +437,21 @@ public class MainView extends BaseView {
             int xSize = c.getxSize();
             int ySize = c.getySize();
             drawImage(x, y, xSize, ySize, image, imageView);
+        }
+    }
+
+    private void drawBoss(Boss c) {
+        if (c.isActive()) {
+            ImageView imageView = imageViewBuilder.getImageView();
+            int x = c.getX();
+            int y = c.getY();
+            int xSize = c.getxSize();
+            int ySize = c.getySize();
+            if(!c.isBossStateFlag()){
+                drawImage(x, y, xSize, ySize, bossImage, imageView);
+            } else {
+                drawImage(x, y, xSize, ySize, boss2Image, imageView);
+            }
         }
     }
 
