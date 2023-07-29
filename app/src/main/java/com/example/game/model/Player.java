@@ -84,7 +84,7 @@ public class Player extends GameCharacter{
     }
 
     public void damage(){
-        hp -= 10;
+        hp -= 100;
         damageFlag = true;
     }
 
