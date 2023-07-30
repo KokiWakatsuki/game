@@ -1,6 +1,10 @@
-package com.example.game.model;
+package com.example.game.model.boss_ability_pack;
 
-public class BossBarrier extends GameCharacter{
+import com.example.game.model.Boss;
+import com.example.game.model.BossAbility;
+import com.example.game.model.MovingSlash;
+
+public class BossBarrier extends BossAbility {
     private boolean bossState = false;
     public BossBarrier() {
         this.x = -100;

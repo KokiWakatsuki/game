@@ -1,9 +1,11 @@
-package com.example.game.model;
+package com.example.game.model.trap_pack;
 
 import com.example.game.MainActivity;
+import com.example.game.model.Player;
+import com.example.game.model.Trap;
 import com.example.game.views.MainView;
 
-public class Warp extends Trap{
+public class Warp extends Trap {
     private Player player;
 
     public void setPlayer(Player player) {

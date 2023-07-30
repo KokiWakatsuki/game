@@ -1,8 +1,11 @@
-package com.example.game.model;
+package com.example.game.model.trap_pack;
 
-import com.example.game.views.MainView;
+import com.example.game.model.Barrier;
+import com.example.game.model.Player;
+import com.example.game.model.Slash;
+import com.example.game.model.Trap;
 
-public class MovingNeedle extends Trap{
+public class Needle extends Trap {
 
     private Player player;
     private Slash slash;
@@ -29,20 +32,21 @@ public class MovingNeedle extends Trap{
     public boolean isDead(){
         return deadFlag;
     }
-    public MovingNeedle() {
-        this.x = MainView.backGroundMax + (int)(Math.random() * 3000);
-        this.y = 100 + (int)(Math.random() * 600);
-        this.xSize = 150;
-        this.ySize = 50;
-        this.xSpeed = -5 -(int)(Math.random() * 10);
+    public Needle(int x, int y) {
+        this.x = x + (int) (Math.random() * 200 - 100);
+        this.y = y + (int) (Math.random() * 800 - 400);
+        this.xSize = 70;
+        this.ySize = 300;
+        this.ySpeed = 15;
     }
 
     public void move(){
-        x += xSpeed;
+        y += ySpeed;
 
-        if(x < -this.xSize){
-            x = MainView.backGroundMax + (int)(Math.random() * 3000);
-            y = 100 + (int)(Math.random() * 600);
+        if(y > 15){
+            ySpeed = -2;
+        } else if(y < -500) {
+            ySpeed = 10;
         }
 
         // 無限ダメージを防ぐためにdamageFlagで制御する

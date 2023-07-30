@@ -1,4 +1,4 @@
-package com.example.game.model;
+package com.example.game.model.explain_pack;
 
 public class Explain7 implements BossExplain, GameExplain{
     public String getGameExplain(){

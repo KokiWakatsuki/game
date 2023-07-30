@@ -1,5 +1,14 @@
 package com.example.game.model;
 
+import com.example.game.model.boss_ability_pack.Beam;
+import com.example.game.model.boss_ability_pack.BossBarrier;
+import com.example.game.model.boss_ability_pack.Energy;
+import com.example.game.model.boss_pack.Boss1;
+import com.example.game.model.boss_pack.Boss2;
+import com.example.game.model.trap_pack.MovingNeedle;
+import com.example.game.model.trap_pack.Needle;
+import com.example.game.model.trap_pack.Warp;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,6 +30,7 @@ public class World {
     Warp warp;
     Explain explain;
     List<Trap> traps;
+    List<BossAbility> bossAbilities;
     List<Ground> grounds;
     List<Needle> needles;
     List<MovingNeedle> movingNeedles;
@@ -65,6 +75,11 @@ public class World {
         traps.addAll(needles);
         traps.addAll(movingNeedles);
 
+        bossAbilities = new LinkedList<BossAbility>();
+        bossAbilities.add(bossBarrier);
+        bossAbilities.add(beam);
+        bossAbilities.add(energy);
+
 
         // モデルの接続
         for(Ground ground : grounds){
@@ -79,13 +94,9 @@ public class World {
         barrier.setPlayer(player);
         boss1.setPlayer(player);
         boss2.setPlayer(player);
-        bossBarrier.setBoss(boss);
-        bossBarrier.setMovingSlash(movingSlash);
-        beam.setBoss(boss);
-        beam.setPlayer(player);
-        energy.setBoss(boss);
-        energy.setPlayer(player);
-
+        bossAbilities.forEach(x -> x.setPlayer(player));
+        bossAbilities.forEach(x -> x.setBoss(boss));
+        bossAbilities.forEach(x -> x.setMovingSlash(movingSlash));
     }
 
     public void move() {
@@ -95,10 +106,8 @@ public class World {
         movingSlash.move();
         barrier.move();
         boss.move();
-        bossBarrier.move();
         traps.forEach(x -> x.move());
-        beam.move();
-        energy.move();
+        bossAbilities.forEach(x -> x.move());
 
         if(boss1.getBossHp() < 6){
             beam.initialize();

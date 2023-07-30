@@ -1,6 +1,10 @@
-package com.example.game.model;
+package com.example.game.model.boss_ability_pack;
 
-public class Beam extends GameCharacter {
+import com.example.game.model.Boss;
+import com.example.game.model.BossAbility;
+import com.example.game.model.Player;
+
+public class Beam extends BossAbility {
     private Boss boss;
     private Player player;
     private int beamSize = 0;

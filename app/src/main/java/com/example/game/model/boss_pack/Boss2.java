@@ -1,6 +1,9 @@
-package com.example.game.model;
+package com.example.game.model.boss_pack;
 
-public class Boss2 extends Boss{
+import com.example.game.model.Boss;
+import com.example.game.model.Player;
+
+public class Boss2 extends Boss {
     private boolean appearFlag = false;
     private boolean damageFlag;
     private int count = 0;
