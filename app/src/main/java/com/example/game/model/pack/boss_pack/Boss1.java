@@ -27,7 +27,7 @@ public class Boss1 extends Boss {
     public Boss1() {
         this.x=15800;
         this.y=1000;
-        this.xSize=419;
+        this.xSize=297;
         this.ySize=297;
         this.xSpeed = 0;
         this.ySpeed = -10;
