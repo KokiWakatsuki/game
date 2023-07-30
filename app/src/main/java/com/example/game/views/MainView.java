@@ -185,6 +185,9 @@ public class MainView extends BaseView {
         // ボスを表示
         drawBoss(world.getBoss());
 
+        // バリアを表示
+        drawBarrier(barrier, player);
+
         // プレーヤを表示
         drawPlayer(player);
 
@@ -193,9 +196,6 @@ public class MainView extends BaseView {
 
         // 飛ぶ斬撃を表示
         drawMovingSlash(movingSlash, player);
-
-        // バリアを表示
-        drawBarrier(barrier, player);
 
         // ボスのバリアを表示
         drawBossBarrier(world.getBossBarrier());

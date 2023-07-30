@@ -9,8 +9,8 @@ public class BossBarrier extends BossAbility {
     public BossBarrier() {
         this.x = -100;
         this.y = -100;
-        this.xSize = 569;
-        this.ySize = 569;
+        this.xSize = 519;
+        this.ySize = 519;
     }
     private Boss boss;
     private MovingSlash movingSlash;
