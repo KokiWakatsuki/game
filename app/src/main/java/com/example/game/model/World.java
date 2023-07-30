@@ -114,7 +114,7 @@ public class World {
         bossAbilities.forEach(x -> x.move());
         playerAbilities.forEach(x -> x.move());
 
-        if(boss1.getBossHp() < 6){
+        if(boss1.getBossHp() < 3){
             beam.initialize();
             energy.initialize();
             boss2.setX(boss1.getX());

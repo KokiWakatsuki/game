@@ -12,8 +12,8 @@ public class Barrier extends PlayerAbility {
     public Barrier() {
         this.x = -180;
         this.y = -180;
-        this.xSize = 150;
-        this.ySize = 150;
+        this.xSize = 200;
+        this.ySize = 200;
     }
 
     public void move(){
