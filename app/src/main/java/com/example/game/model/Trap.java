@@ -1,5 +1,8 @@
 package com.example.game.model;
 
+import com.example.game.model.pack.player_ability_pack.Barrier;
+import com.example.game.model.pack.player_ability_pack.Slash;
+
 public class Trap extends GameCharacter{
     public void move(){
 

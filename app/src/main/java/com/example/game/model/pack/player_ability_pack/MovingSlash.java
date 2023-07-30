@@ -1,6 +1,10 @@
-package com.example.game.model;
+package com.example.game.model.pack.player_ability_pack;
 
-public class MovingSlash extends GameCharacter{
+import com.example.game.model.Boss;
+import com.example.game.model.Player;
+import com.example.game.model.PlayerAbility;
+
+public class MovingSlash extends PlayerAbility {
     private Player player;
     private Boss boss;
     private boolean bossDamageFlag;

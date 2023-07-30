@@ -1,4 +1,4 @@
-package com.example.game.model.boss_pack;
+package com.example.game.model.pack.boss_pack;
 
 import com.example.game.model.Boss;
 import com.example.game.model.Player;

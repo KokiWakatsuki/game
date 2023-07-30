@@ -1,4 +1,4 @@
-package com.example.game.model.trap_pack;
+package com.example.game.model.pack.trap_pack;
 
 import com.example.game.MainActivity;
 import com.example.game.model.Player;

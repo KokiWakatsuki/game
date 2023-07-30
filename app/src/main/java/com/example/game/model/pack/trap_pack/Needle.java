@@ -1,8 +1,8 @@
-package com.example.game.model.trap_pack;
+package com.example.game.model.pack.trap_pack;
 
-import com.example.game.model.Barrier;
+import com.example.game.model.pack.player_ability_pack.Barrier;
+import com.example.game.model.pack.player_ability_pack.Slash;
 import com.example.game.model.Player;
-import com.example.game.model.Slash;
 import com.example.game.model.Trap;
 
 public class Needle extends Trap {

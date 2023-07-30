@@ -1,7 +1,7 @@
 package com.example.game.model;
 
-import com.example.game.model.explain_pack.BossExplain;
-import com.example.game.model.explain_pack.GameExplain;
+import com.example.game.model.pack.explain_pack.BossExplain;
+import com.example.game.model.pack.explain_pack.GameExplain;
 
 public class Explain {
     private GameExplain gameExplain;

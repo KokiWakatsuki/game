@@ -1,8 +1,8 @@
-package com.example.game.model.boss_ability_pack;
+package com.example.game.model.pack.boss_ability_pack;
 
 import com.example.game.model.Boss;
 import com.example.game.model.BossAbility;
-import com.example.game.model.MovingSlash;
+import com.example.game.model.pack.player_ability_pack.MovingSlash;
 
 public class BossBarrier extends BossAbility {
     private boolean bossState = false;

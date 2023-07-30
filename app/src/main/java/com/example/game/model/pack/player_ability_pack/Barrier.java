@@ -1,6 +1,9 @@
-package com.example.game.model;
+package com.example.game.model.pack.player_ability_pack;
 
-public class Barrier extends GameCharacter{
+import com.example.game.model.Player;
+import com.example.game.model.PlayerAbility;
+
+public class Barrier extends PlayerAbility {
     private Player player;
 
     public void setPlayer(Player player) {
