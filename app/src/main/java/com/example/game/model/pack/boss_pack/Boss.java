@@ -1,6 +1,9 @@
-package com.example.game.model;
+package com.example.game.model.pack.boss_pack;
 
-public class Boss extends GameCharacter{
+import com.example.game.model.GameCharacter;
+import com.example.game.model.Player;
+
+public class Boss extends GameCharacter {
 
     public void setPlayer(Player player) {
     }

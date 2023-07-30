@@ -1,6 +1,5 @@
 package com.example.game.model.pack.boss_pack;
 
-import com.example.game.model.Boss;
 import com.example.game.model.Player;
 
 public class Boss2 extends Boss {

@@ -2,7 +2,6 @@ package com.example.game.model.pack.trap_pack;
 
 import com.example.game.MainActivity;
 import com.example.game.model.Player;
-import com.example.game.model.Trap;
 import com.example.game.views.MainView;
 
 public class Warp extends Trap {

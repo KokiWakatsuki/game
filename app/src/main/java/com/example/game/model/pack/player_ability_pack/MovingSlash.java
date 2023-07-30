@@ -1,8 +1,7 @@
 package com.example.game.model.pack.player_ability_pack;
 
-import com.example.game.model.Boss;
+import com.example.game.model.pack.boss_pack.Boss;
 import com.example.game.model.Player;
-import com.example.game.model.PlayerAbility;
 
 public class MovingSlash extends PlayerAbility {
     private Player player;

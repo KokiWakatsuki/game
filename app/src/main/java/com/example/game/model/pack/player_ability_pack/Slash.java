@@ -1,7 +1,6 @@
 package com.example.game.model.pack.player_ability_pack;
 
 import com.example.game.model.Player;
-import com.example.game.model.PlayerAbility;
 
 public class Slash extends PlayerAbility {
     private Player player;

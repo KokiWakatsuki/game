@@ -1,7 +1,6 @@
 package com.example.game.model.pack.boss_ability_pack;
 
-import com.example.game.model.Boss;
-import com.example.game.model.BossAbility;
+import com.example.game.model.pack.boss_pack.Boss;
 import com.example.game.model.Player;
 
 public class Beam extends BossAbility {

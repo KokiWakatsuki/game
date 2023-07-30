@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 
 import com.example.game.helpers.BaseActivity;
-import com.example.game.model.Explain;
 import com.example.game.model.Player;
 import com.example.game.model.World;
 import com.example.game.views.MainView;

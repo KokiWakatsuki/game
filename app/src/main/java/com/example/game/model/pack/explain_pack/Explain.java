@@ -1,4 +1,4 @@
-package com.example.game.model;
+package com.example.game.model.pack.explain_pack;
 
 import com.example.game.model.pack.explain_pack.BossExplain;
 import com.example.game.model.pack.explain_pack.GameExplain;

@@ -1,8 +1,11 @@
-package com.example.game.model;
+package com.example.game.model.pack.boss_ability_pack;
 
+import com.example.game.model.pack.boss_pack.Boss;
+import com.example.game.model.GameCharacter;
+import com.example.game.model.Player;
 import com.example.game.model.pack.player_ability_pack.MovingSlash;
 
-public class BossAbility extends GameCharacter{
+public class BossAbility extends GameCharacter {
     public void move(){
 
     }
