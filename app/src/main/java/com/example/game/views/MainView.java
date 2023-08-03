@@ -271,10 +271,10 @@ public class MainView extends BaseView {
             gameClearTextView = new TextView(context);
             constraintLayout.addView(gameClearTextView);
         }
-        gameClearTextView.setTextSize(32);
-        gameClearTextView.setTextColor(Color.WHITE);
+        gameClearTextView.setTextSize(128);
+        gameClearTextView.setTextColor(Color.YELLOW);
         gameClearTextView.setText("Game Clear !!");
-        drawTextViewCenter(canvasBaseX + 750, 350, gameClearTextView);
+        drawTextViewCenter(canvasBaseX + 750, 200, gameClearTextView);
     }
 
     public void drawGameOver() {
@@ -282,10 +282,10 @@ public class MainView extends BaseView {
             gameOverTextView = new TextView(context);
             constraintLayout.addView(gameOverTextView);
         }
-        gameOverTextView.setTextSize(32);
+        gameOverTextView.setTextSize(128);
         gameOverTextView.setTextColor(Color.RED);
         gameOverTextView.setText("Game Over !!");
-        drawTextViewCenter(canvasBaseX + 750, 350, gameOverTextView);
+        drawTextViewCenter(canvasBaseX + 750, 200, gameOverTextView);
     }
 
     public void drawTime(double time){

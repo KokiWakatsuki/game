@@ -1,50 +1,32 @@
 package com.example.game.model;
 
-public class Boss extends GameCharacter{
+public abstract class Boss extends GameCharacter{
 
-    public void setPlayer(Player player) {
-    }
+    abstract public void setPlayer(Player player);
 
-    public void dead() {
-    }
+    abstract public void dead();
 
-    public void damage(){
-    }
+    abstract public void damage();
 
-    public boolean isBeamFlag(){
-        return false;
-    }
+    abstract public boolean isBeamFlag();
 
-    public boolean isEnergyFlag(){
-        return false;
-    }
+    abstract public boolean isEnergyFlag();
 
-    public void falseBeamFlag(){
-    }
+    abstract public void falseBeamFlag();
 
-    public void falseEnergyFlag(){
-    }
+    abstract public void falseEnergyFlag();
 
-    public void move(){
-    }
+    abstract public void move();
 
-    public int getBossHp() {
-        return 0;
-    }
+    abstract public int getBossHp();
 
-    public void setBossHp(int bossHp) {
-    }
+    abstract public void setBossHp(int bossHp);
 
-    public void setAppearFlag(boolean appearFlag) {
-    }
+    abstract public void setAppearFlag(boolean appearFlag);
 
-    public void setCount(int count) {
-    }
+    abstract public void setCount(int count);
 
-    public void setDamageFlag(boolean damageFlag) {
-    }
+    abstract public void setDamageFlag(boolean damageFlag);
 
-    public boolean isBossStateFlag() {
-        return false;
-    }
+    abstract public boolean isBossStateFlag();
 }
